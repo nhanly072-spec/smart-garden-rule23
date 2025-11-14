@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Green Farm IoT - Nội Quy & Liên Hệ</title>
+
+<!-- Google Icons -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded" rel="stylesheet" />
+
+<style>
+    body {
+        margin: 0;
+        font-family: "Poppins", sans-serif;
+        transition: 0.4s;
+        background: url('https://images.unsplash.com/photo-1501004318641-b39e6451bec6?auto=format&fit=crop&w=1200&q=60') center/cover fixed;
+    }
+
+    .overlay {
+        position: fixed;
+        inset: 0;
+        backdrop-filter: blur(4px);
+        background: rgba(0,0,0,0.42);
+        z-index: -1;
+    }
+
+    nav {
+        width: 100%;
+        padding: 14px 30px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        backdrop-filter: blur(8px);
+        background: rgba(0,0,0,0.35);
+        border-bottom: 1px solid rgba(255,255,255,0.15);
+    }
+
+    nav .logo {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        color: #fff;
+        font-size: 22px;
+        font-weight: 600;
+        letter-spacing: 1px;
+    }
+
+    nav .logo img {
+        width: 40px;
+        filter: drop-shadow(0 0 6px rgba(0,255,120,0.9));
+    }
+
+    nav .menu a {
+        color: #fff;
+        margin: 0 15px;
+        text-decoration: none;
+        font-weight: 500;
+        transition: .2s;
+    }
+
+    nav .menu a:hover {
+        color: #00ff99;
+    }
+
+    .toggle-btn {
+        background: #00ff99;
+        border: none;
+        padding: 8px 16px;
+        border-radius: 20px;
+        cursor: pointer;
+        font-weight: 600;
+        transition: .3s;
+    }
+
+    .toggle-btn:hover {
+        background: #04d982;
+    }
+
+    .container {
+        max-width: 800px;
+        margin: 60px auto;
+        background: rgba(255,255,255,0.1);
+        padding: 30px;
+        border-radius: 22px;
+        backdrop-filter: blur(12px);
+        color: #fff;
+        border: 1px solid rgba(255,255,255,0.15);
+        animation: slideUp 0.9s ease forwards;
+        opacity: 0;
+    }
+
+    @keyframes slideUp {
+        0% { transform: translateY(40px); opacity: 0; }
+        100% { transform: translateY(0); opacity: 1; }
+    }
+
+    h1 {
+        text-align: center;
+        font-size: 32px;
+        text-shadow: 0 0 8px #00ff99;
+        animation: glow 1.8s infinite alternate;
+    }
+
+    @keyframes glow {
+        from { text-shadow: 0 0 5px #00ff99; }
+        to { text-shadow: 0 0 15px #00ffaa; }
+    }
+
+    .rule {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        padding: 16px 0;
+        border-bottom: 1px solid rgba(255,255,255,0.2);
+        font-size: 18px;
+    }
+
+    .material-symbols-rounded {
+        font-size: 34px;
+        color: #00ff99;
+        filter: drop-shadow(0 0 4px #00ff99);
+    }
+
+    /* CONTACT CARD */
+    .contact-box {
+        margin-top: 40px;
+        background: rgba(255,255,255,0.12);
+        padding: 25px;
+        border-radius: 18px;
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255,255,255,0.25);
+        animation: fadeIn 1s ease;
+    }
+
+    .contact-box h2 {
+        text-align: center;
+        font-size: 26px;
+        text-shadow: 0 0 8px #00ff99;
+        margin-bottom: 10px;
+    }
+
+    .contact-line {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        font-size: 18px;
+        margin: 8px 0;
+    }
+
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(20px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+</style>
+</head>
+
+<body>
+<div class="overlay"></div>
+
+<!-- NAV BAR -->
+<nav>
+    <div class="logo">
+        <img src="https://cdn-icons-png.flaticon.com/512/2907/2907253.png">
+        Green Farm IoT
+    </div>
+    <div class="menu">
+        <a href="#rules">Nội quy</a>
+        <a href="#contact">Liên hệ</a>
+    </div>
+    <button class="toggle-btn" onclick="toggleMode()">Dark Mode</button>
+</nav>
+
+
+
+<!-- ====================== -->
+<!--      NỘI QUY FARM      -->
+<!-- ====================== -->
+<div id="rules" class="container">
+    <h1>Nội Quy Khi Vào Green Farm IoT</h1>
+
+    <div class="rule">
+        <span class="material-symbols-rounded">warning</span>
+        Không hút thuốc & không mang theo nguồn lửa (diêm, bật lửa…)
+    </div>
+
+    <div class="rule">
+        <span class="material-symbols-rounded">key</span>
+        Không tự ý mở hộp điều khiển, router, cảm biến IoT.
+    </div>
+
+    <div class="rule">
+        <span class="material-symbols-rounded">humidity_percentage</span>
+        Không chạm vào cảm biến trong vườn trừ khi có hướng dẫn.
+    </div>
+
+    <div class="rule">
+        <span class="material-symbols-rounded">videocam</span>
+        Không che hoặc xoay camera giám sát.
+    </div>
+
+    <div class="rule">
+        <span class="material-symbols-rounded">route</span>
+        Đi đúng lối đi, tránh dẫm lên luống cây hoặc dây điện.
+    </div>
+
+    <div class="rule">
+        <span class="material-symbols-rounded">cleaning_services</span>
+        Không xả rác – giữ môi trường xanh sạch đẹp.
+    </div>
+</div>
+
+
+
+
+<!-- ====================== -->
+<!--        LIÊN HỆ         -->
+<!-- ====================== -->
+<div id="contact" class="container contact-box">
+    <h2>Thông Tin Liên Hệ Đội Ngũ Green Farm IoT</h2>
+
+    <div class="contact-line">
+        <span class="material-symbols-rounded">mail</span>
+        Email: <strong>ltnngm@gmail.com</strong>
+    </div>
+
+    <div class="contact-line">
+        <span class="material-symbols-rounded">call</span>
+        Số điện thoại: <strong>09********</strong>
+    </div>
+
+    <div class="contact-line">
+        <span class="material-symbols-rounded">groups</span>
+        Đội ngũ hỗ trợ kỹ thuật & vận hành Green Farm IoT.
+    </div>
+</div>
+
+
+<script>
+function toggleMode() {
+    document.body.classList.toggle("dark");
+}
+</script>
+
+</body>
+</html>
