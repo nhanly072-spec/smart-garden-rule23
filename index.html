@@ -3,178 +3,66 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Green Farm IoT - Nội Quy</title>
+<title>Green Farm IoT</title>
 
 <style>
-    body {
-        margin: 0;
-        font-family: "Segoe UI", sans-serif;
-        background: #f3f5f7;
-        transition: 0.3s;
-    }
+body {font-family: Arial; margin:0; background:#eef2f3; transition:0.3s;}
+body.dark {background:#111; color:#eee;}
 
-    /* DARK MODE */
-    body.dark {
-        background: #111;
-        color: #e8e8e8;
-    }
+header {
+    position:sticky; top:0; z-index:10;
+    background:#222; color:white; padding:15px 40px;
+    display:flex; justify-content:space-between; align-items:center;
+}
+nav a {color:white; margin-left:25px; text-decoration:none; font-size:18px;}
 
-    /* HEADER */
-    header {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 18px 40px;
-        background: rgba(0,0,0,0.75);
-        color: white;
-        position: sticky;
-        top: 0;
-        z-index: 10;
-    }
-    header.dark {
-        background: rgba(255,255,255,0.08);
-    }
+.dark-btn {
+    background:#00e676; padding:8px 18px;
+    border-radius:20px; cursor:pointer; font-weight:bold;
+}
 
-    .brand {
-        font-size: 26px;
-        font-weight: bold;
-        display: flex;
-        align-items: center;
-        gap: 10px;
-    }
+.box {
+    max-width:900px; margin:60px auto; background:rgba(255,255,255,0.5);
+    padding:40px; border-radius:20px; backdrop-filter:blur(10px);
+}
+.title {text-align:center; font-size:30px; color:#00e676; margin-bottom:25px;}
 
-    /* NAVIGATION */
-    nav a {
-        color: white;
-        text-decoration: none;
-        margin-left: 30px;
-        font-size: 18px;
-        opacity: 0.9;
-    }
-    nav a:hover {
-        opacity: 1;
-    }
-
-    /* DARK MODE BUTTON */
-    .dark-btn {
-        padding: 8px 18px;
-        background: #00e676;
-        border-radius: 20px;
-        cursor: pointer;
-        color: black;
-        font-weight: bold;
-        transition: 0.25s;
-    }
-    .dark-btn:hover {
-        transform: scale(1.05);
-    }
-
-    /* TITLE + BOX */
-    .rule-container {
-        max-width: 900px;
-        margin: 70px auto;
-        padding: 40px 50px;
-        background: rgba(255,255,255,0.45);
-        border-radius: 20px;
-        backdrop-filter: blur(10px);
-        border: 1px solid rgba(0,0,0,0.08);
-        transition: 0.3s;
-    }
-    body.dark .rule-container {
-        background: rgba(255,255,255,0.07);
-        border: 1px solid rgba(255,255,255,0.15);
-    }
-
-    .rule-title {
-        text-align: center;
-        font-size: 32px;
-        font-weight: bold;
-        color: #00e676;
-        margin-bottom: 40px;
-    }
-
-    .rule-item {
-        font-size: 20px;
-        padding: 15px 0;
-        border-bottom: 1px solid rgba(0,0,0,0.15);
-        display: flex;
-        align-items: center;
-        gap: 12px;
-    }
-    body.dark .rule-item {
-        border-bottom: 1px solid rgba(255,255,255,0.15);
-    }
-
-    /* CONTACT SECTION */
-    #contact {
-        max-width: 900px;
-        margin: 60px auto 120px;
-        padding: 30px 40px;
-        background: rgba(255,255,255,0.4);
-        border-radius: 20px;
-        backdrop-filter: blur(10px);
-        transition: 0.3s;
-    }
-    body.dark #contact {
-        background: rgba(255,255,255,0.07);
-    }
-
-    #contact h2 {
-        color: #00e676;
-        font-size: 30px;
-        margin-bottom: 20px;
-    }
-
-    .contact-item {
-        font-size: 20px;
-        margin: 10px 0;
-        display: flex;
-        align-items: center;
-        gap: 12px;
-    }
+.rule {font-size:20px; padding:12px 0; border-bottom:1px solid #bbb;}
+.contact-item {font-size:20px; margin:12px 0;}
 
 </style>
 </head>
+
 <body>
 
-<!-- HEADER -->
-<header id="header">
-    <div class="brand">🌿🎶 Green Farm IoT</div>
-
+<header>
+    <div style="font-size:24px;font-weight:bold;">🌿 Green Farm IoT</div>
     <nav>
         <a href="#rules">Nội quy</a>
         <a href="#contact">Liên hệ</a>
     </nav>
-
-    <div class="dark-btn" onclick="toggleDark()">Dark Mode</div>
+    <div class="dark-btn" onclick="toggleDark()">Dark</div>
 </header>
 
-<!-- RULES -->
-<section id="rules" class="rule-container">
-    <div class="rule-title">Nội Quy Khi Vào Green Farm IoT</div>
-
-    <div class="rule-item">⚠️ Không hút thuốc & không mang theo nguồn lửa (diêm, bật lửa…)</div>
-    <div class="rule-item">🔑 Không tự ý mở hộp điều khiển, router, cảm biến IoT.</div>
-    <div class="rule-item">🔥 Không chạm vào cảm biến trong vườn trừ khi có hướng dẫn.</div>
-    <div class="rule-item">📷 Không che hoặc xoay camera giám sát.</div>
-    <div class="rule-item">🚶 Đi đúng lối đi, tránh dẫm lên luống cây hoặc dây điện.</div>
-    <div class="rule-item">🧹 Không xả rác – giữ môi trường xanh sạch đẹp.</div>
-
+<section id="rules" class="box">
+    <div class="title">Nội Quy Green Farm IoT</div>
+    <div class="rule">⚠️ Không hút thuốc & không mang nguồn lửa.</div>
+    <div class="rule">🔒 Không tự ý mở hộp điều khiển hoặc cảm biến.</div>
+    <div class="rule">🔥 Không chạm vào hệ thống khi không có hướng dẫn.</div>
+    <div class="rule">📷 Không che hoặc xoay camera.</div>
+    <div class="rule">🚶 Đi đúng lối, không dẫm cây.</div>
+    <div class="rule">🧹 Không xả rác.</div>
 </section>
 
-<!-- CONTACT -->
-<section id="contact">
-    <h2>Liên hệ đội ngũ Green Farm IoT</h2>
-
+<section id="contact" class="box">
+    <div class="title">Liên hệ đội ngũ</div>
     <div class="contact-item">📧 Email: <b>ltnngm@gmail.com</b></div>
     <div class="contact-item">📞 Số điện thoại: <b>09********</b></div>
-    <div class="contact-item">🏡 Khu vực: Green Farm IoT – Khu thực nghiệm mô hình nông nghiệp thông minh</div>
 </section>
 
 <script>
-function toggleDark() {
+function toggleDark(){
     document.body.classList.toggle("dark");
-    document.getElementById("header").classList.toggle("dark");
 }
 </script>
 
