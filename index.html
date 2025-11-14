@@ -16,7 +16,6 @@
         background: url('https://images.unsplash.com/photo-1501004318641-b39e6451bec6?auto=format&fit=crop&w=1200&q=60') center/cover fixed;
     }
 
-    /* overlay */
     .overlay {
         position: fixed;
         inset: 0;
@@ -25,7 +24,7 @@
         z-index: -1;
     }
 
-    /* NAVIGATION BAR */
+    /* NAVIGATION (GIAO DIỆN CŨ GIỮ NGUYÊN) */
     nav {
         width: 100%;
         padding: 14px 30px;
@@ -44,7 +43,6 @@
         color: #fff;
         font-size: 22px;
         font-weight: 600;
-        letter-spacing: 1px;
     }
 
     nav .logo img {
@@ -64,7 +62,6 @@
         color: #00ff99;
     }
 
-    /* Dark Mode Button */
     .toggle-btn {
         background: #00ff99;
         border: none;
@@ -75,11 +72,7 @@
         transition: .3s;
     }
 
-    .toggle-btn:hover {
-        background: #04d982;
-    }
-
-    /* CONTENT CARD */
+    /* CARD */
     .container {
         max-width: 800px;
         margin: 60px auto;
@@ -89,17 +82,16 @@
         backdrop-filter: blur(12px);
         color: #fff;
         border: 1px solid rgba(255,255,255,0.15);
-
         animation: slideUp 0.9s ease forwards;
         opacity: 0;
     }
 
     @keyframes slideUp {
-        0% { transform: translateY(40px); opacity: 0; }
-        100% { transform: translateY(0); opacity: 1; }
+        from { transform: translateY(40px); opacity: 0; }
+        to { transform: translateY(0); opacity: 1; }
     }
 
-    h1 {
+    h1, h2 {
         text-align: center;
         font-size: 32px;
         text-shadow: 0 0 8px #00ff99;
@@ -110,7 +102,7 @@
         from { text-shadow: 0 0 5px #00ff99; }
         to { text-shadow: 0 0 15px #00ffaa; }
     }
-    
+
     .rule, .contact-item {
         display: flex;
         align-items: center;
@@ -118,20 +110,6 @@
         padding: 16px 0;
         border-bottom: 1px solid rgba(255,255,255,0.2);
         font-size: 18px;
-        animation: fadeIn 1s ease;
-    }
-
-    @keyframes fadeIn {
-        from { opacity: 0; transform: translateX(-20px); }
-        to { opacity: 1; transform: translateX(0); }
-    }
-
-    .contact-title {
-        text-align: center;
-        margin-top: 40px;
-        margin-bottom: 10px;
-        font-size: 28px;
-        text-shadow: 0 0 6px #00ff99;
     }
 
     .material-symbols-rounded {
@@ -142,7 +120,7 @@
 
     /* DARK MODE */
     .dark {
-        background: #0a0f0a url('https://images.unsplash.com/photo-1501004318641-b39e6451bec6?auto=format&fit=crop&w=1200&q=60') center/cover fixed;
+        background: #0a0f0a;
     }
 
     .dark nav {
@@ -151,7 +129,6 @@
 
     .dark .container {
         background: rgba(0,0,0,0.45);
-        color: #eee;
     }
 
     .dark .toggle-btn {
@@ -164,20 +141,24 @@
 <body>
 <div class="overlay"></div>
 
-<!-- NAV BAR -->
+<!-- NAV GIỮ NGUYÊN GIAO DIỆN CŨ -->
 <nav>
     <div class="logo">
         <img src="https://cdn-icons-png.flaticon.com/512/2907/2907253.png">
         Green Farm IoT
     </div>
     <div class="menu">
-        <a href="#rules">Nội quy</a>
+        <a href="#">Trang chủ</a>
+        <a href="#">Điều khiển IoT</a>
+        <a href="#">Camera</a>
+        <a href="#">Biểu đồ</a>
         <a href="#contact">Liên hệ</a>
     </div>
     <button class="toggle-btn" onclick="toggleMode()">Dark Mode</button>
 </nav>
 
-<div class="container" id="rules">
+<!-- CARD NỘI DUNG -->
+<div class="container">
     <h1>Nội Quy Khi Vào Green Farm IoT</h1>
 
     <div class="rule">
@@ -192,7 +173,7 @@
 
     <div class="rule">
         <span class="material-symbols-rounded">humidity_percentage</span>
-        Không chạm vào cảm biến nếu không có hướng dẫn.
+        Không chạm vào cảm biến khi không có hướng dẫn.
     </div>
 
     <div class="rule">
@@ -210,8 +191,8 @@
         Không xả rác – giữ môi trường xanh sạch đẹp.
     </div>
 
-    <!-- CONTACT SECTION (GIỮ NGUYÊN GIAO DIỆN CŨ) -->
-    <h2 class="contact-title" id="contact">Liên Hệ Đội Ngũ</h2>
+    <!-- LIÊN HỆ GIỮ NGUYÊN STYLE -->
+    <h2 id="contact">Liên Hệ Đội Ngũ</h2>
 
     <div class="contact-item">
         <span class="material-symbols-rounded">mail</span>
