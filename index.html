@@ -1,67 +1,231 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-<meta charset="UTF-8">
+<meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Green Farm IoT</title>
+<title>Green Farm IoT - Garden Rules</title>
+
+<!-- Google Icons -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded" rel="stylesheet" />
 
 <style>
-body {font-family: Arial; margin:0; background:#eef2f3; transition:0.3s;}
-body.dark {background:#111; color:#eee;}
+    body {
+        margin: 0;
+        font-family: "Poppins", sans-serif;
+        transition: 0.4s;
+        background: url('https://images.unsplash.com/photo-1501004318641-b39e6451bec6?auto=format&fit=crop&w=1200&q=60') center/cover fixed;
+    }
 
-header {
-    position:sticky; top:0; z-index:10;
-    background:#222; color:white; padding:15px 40px;
-    display:flex; justify-content:space-between; align-items:center;
-}
-nav a {color:white; margin-left:25px; text-decoration:none; font-size:18px;}
+    /* overlay */
+    .overlay {
+        position: fixed;
+        inset: 0;
+        backdrop-filter: blur(4px);
+        background: rgba(0,0,0,0.42);
+        z-index: -1;
+    }
 
-.dark-btn {
-    background:#00e676; padding:8px 18px;
-    border-radius:20px; cursor:pointer; font-weight:bold;
-}
+    /* NAVIGATION BAR */
+    nav {
+        width: 100%;
+        padding: 14px 30px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        backdrop-filter: blur(8px);
+        background: rgba(0,0,0,0.35);
+        border-bottom: 1px solid rgba(255,255,255,0.15);
+    }
 
-.box {
-    max-width:900px; margin:60px auto; background:rgba(255,255,255,0.5);
-    padding:40px; border-radius:20px; backdrop-filter:blur(10px);
-}
-.title {text-align:center; font-size:30px; color:#00e676; margin-bottom:25px;}
+    nav .logo {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        color: #fff;
+        font-size: 22px;
+        font-weight: 600;
+        letter-spacing: 1px;
+    }
 
-.rule {font-size:20px; padding:12px 0; border-bottom:1px solid #bbb;}
-.contact-item {font-size:20px; margin:12px 0;}
+    nav .logo img {
+        width: 40px;
+        filter: drop-shadow(0 0 6px rgba(0,255,120,0.9));
+    }
 
+    nav .menu a {
+        color: #fff;
+        margin: 0 15px;
+        text-decoration: none;
+        font-weight: 500;
+        transition: .2s;
+    }
+
+    nav .menu a:hover {
+        color: #00ff99;
+    }
+
+    /* Dark Mode Button */
+    .toggle-btn {
+        background: #00ff99;
+        border: none;
+        padding: 8px 16px;
+        border-radius: 20px;
+        cursor: pointer;
+        font-weight: 600;
+        transition: .3s;
+    }
+
+    .toggle-btn:hover {
+        background: #04d982;
+    }
+
+    /* CONTENT CARD */
+    .container {
+        max-width: 800px;
+        margin: 60px auto;
+        background: rgba(255,255,255,0.1);
+        padding: 30px;
+        border-radius: 22px;
+        backdrop-filter: blur(12px);
+        color: #fff;
+        border: 1px solid rgba(255,255,255,0.15);
+
+        animation: slideUp 0.9s ease forwards;
+        opacity: 0;
+    }
+
+    @keyframes slideUp {
+        0% { transform: translateY(40px); opacity: 0; }
+        100% { transform: translateY(0); opacity: 1; }
+    }
+
+    h1 {
+        text-align: center;
+        font-size: 32px;
+        text-shadow: 0 0 8px #00ff99;
+        animation: glow 1.8s infinite alternate;
+    }
+
+    @keyframes glow {
+        from { text-shadow: 0 0 5px #00ff99; }
+        to { text-shadow: 0 0 15px #00ffaa; }
+    }
+    
+    .rule, .contact-item {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        padding: 16px 0;
+        border-bottom: 1px solid rgba(255,255,255,0.2);
+        font-size: 18px;
+        animation: fadeIn 1s ease;
+    }
+
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateX(-20px); }
+        to { opacity: 1; transform: translateX(0); }
+    }
+
+    .contact-title {
+        text-align: center;
+        margin-top: 40px;
+        margin-bottom: 10px;
+        font-size: 28px;
+        text-shadow: 0 0 6px #00ff99;
+    }
+
+    .material-symbols-rounded {
+        font-size: 34px;
+        color: #00ff99;
+        filter: drop-shadow(0 0 4px #00ff99);
+    }
+
+    /* DARK MODE */
+    .dark {
+        background: #0a0f0a url('https://images.unsplash.com/photo-1501004318641-b39e6451bec6?auto=format&fit=crop&w=1200&q=60') center/cover fixed;
+    }
+
+    .dark nav {
+        background: rgba(0,0,0,0.65);
+    }
+
+    .dark .container {
+        background: rgba(0,0,0,0.45);
+        color: #eee;
+    }
+
+    .dark .toggle-btn {
+        background: #009966;
+        color: #fff;
+    }
 </style>
 </head>
 
 <body>
+<div class="overlay"></div>
 
-<header>
-    <div style="font-size:24px;font-weight:bold;">🌿 Green Farm IoT</div>
-    <nav>
+<!-- NAV BAR -->
+<nav>
+    <div class="logo">
+        <img src="https://cdn-icons-png.flaticon.com/512/2907/2907253.png">
+        Green Farm IoT
+    </div>
+    <div class="menu">
         <a href="#rules">Nội quy</a>
         <a href="#contact">Liên hệ</a>
-    </nav>
-    <div class="dark-btn" onclick="toggleDark()">Dark</div>
-</header>
+    </div>
+    <button class="toggle-btn" onclick="toggleMode()">Dark Mode</button>
+</nav>
 
-<section id="rules" class="box">
-    <div class="title">Nội Quy Green Farm IoT</div>
-    <div class="rule">⚠️ Không hút thuốc & không mang nguồn lửa.</div>
-    <div class="rule">🔒 Không tự ý mở hộp điều khiển hoặc cảm biến.</div>
-    <div class="rule">🔥 Không chạm vào hệ thống khi không có hướng dẫn.</div>
-    <div class="rule">📷 Không che hoặc xoay camera.</div>
-    <div class="rule">🚶 Đi đúng lối, không dẫm cây.</div>
-    <div class="rule">🧹 Không xả rác.</div>
-</section>
+<div class="container" id="rules">
+    <h1>Nội Quy Khi Vào Green Farm IoT</h1>
 
-<section id="contact" class="box">
-    <div class="title">Liên hệ đội ngũ</div>
-    <div class="contact-item">📧 Email: <b>ltnngm@gmail.com</b></div>
-    <div class="contact-item">📞 Số điện thoại: <b>09********</b></div>
-</section>
+    <div class="rule">
+        <span class="material-symbols-rounded">warning</span>
+        Không hút thuốc & không mang theo nguồn lửa.
+    </div>
+
+    <div class="rule">
+        <span class="material-symbols-rounded">key</span>
+        Không tự ý mở hộp điều khiển, router, cảm biến IoT.
+    </div>
+
+    <div class="rule">
+        <span class="material-symbols-rounded">humidity_percentage</span>
+        Không chạm vào cảm biến nếu không có hướng dẫn.
+    </div>
+
+    <div class="rule">
+        <span class="material-symbols-rounded">videocam</span>
+        Không che hoặc xoay camera giám sát.
+    </div>
+
+    <div class="rule">
+        <span class="material-symbols-rounded">route</span>
+        Đi đúng lối đi, tránh dẫm lên cây hoặc dây điện.
+    </div>
+
+    <div class="rule">
+        <span class="material-symbols-rounded">cleaning_services</span>
+        Không xả rác – giữ môi trường xanh sạch đẹp.
+    </div>
+
+    <!-- CONTACT SECTION (GIỮ NGUYÊN GIAO DIỆN CŨ) -->
+    <h2 class="contact-title" id="contact">Liên Hệ Đội Ngũ</h2>
+
+    <div class="contact-item">
+        <span class="material-symbols-rounded">mail</span>
+        Email: <b>ltnngm@gmail.com</b>
+    </div>
+
+    <div class="contact-item">
+        <span class="material-symbols-rounded">call</span>
+        Số điện thoại: <b>09********</b>
+    </div>
+</div>
 
 <script>
-function toggleDark(){
+function toggleMode() {
     document.body.classList.toggle("dark");
 }
 </script>
