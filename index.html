@@ -1,242 +1,180 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-<meta charset="UTF-8" />
+<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Green Farm IoT - Nội Quy & Liên Hệ</title>
-
-<!-- Google Icons -->
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded" rel="stylesheet" />
+<title>Green Farm IoT - Nội Quy</title>
 
 <style>
     body {
         margin: 0;
-        font-family: "Poppins", sans-serif;
-        transition: 0.4s;
-        background: url('https://images.unsplash.com/photo-1501004318641-b39e6451bec6?auto=format&fit=crop&w=1200&q=60') center/cover fixed;
-    }
-
-    .overlay {
-        position: fixed;
-        inset: 0;
-        backdrop-filter: blur(4px);
-        background: rgba(0,0,0,0.42);
-        z-index: -1;
-    }
-
-    /* NAV BAR */
-    nav {
-        width: 100%;
-        padding: 14px 30px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        backdrop-filter: blur(8px);
-        background: rgba(0,0,0,0.35);
-        border-bottom: 1px solid rgba(255,255,255,0.15);
-        position: sticky;
-        top: 0;
-        z-index: 100;
-    }
-
-    nav .logo {
-        display: flex;
-        align-items: center;
-        gap: 10px;
-        color: #fff;
-        font-size: 22px;
-        font-weight: 600;
-        letter-spacing: 1px;
-    }
-
-    nav .logo img {
-        width: 40px;
-        filter: drop-shadow(0 0 6px rgba(0,255,120,0.9));
-    }
-
-    nav .menu a {
-        color: #fff;
-        margin: 0 15px;
-        text-decoration: none;
-        font-weight: 500;
-        transition: .2s;
-    }
-
-    nav .menu a:hover {
-        color: #00ff99;
-    }
-
-    .toggle-btn {
-        background: #00ff99;
-        border: none;
-        padding: 8px 16px;
-        border-radius: 20px;
-        cursor: pointer;
-        font-weight: 600;
-        transition: .3s;
-    }
-    .toggle-btn:hover { background: #04d982; }
-
-    /* CONTENT */
-    .container {
-        max-width: 800px;
-        margin: 60px auto;
-        background: rgba(255,255,255,0.1);
-        padding: 30px;
-        border-radius: 22px;
-        backdrop-filter: blur(12px);
-        color: #fff;
-        border: 1px solid rgba(255,255,255,0.15);
-        animation: slideUp 0.9s ease forwards;
-        opacity: 0;
-    }
-
-    @keyframes slideUp {
-        0% { transform: translateY(40px); opacity: 0; }
-        100% { transform: translateY(0); opacity: 1; }
-    }
-
-    h1, h2 {
-        text-align: center;
-        text-shadow: 0 0 8px #00ff99;
-        animation: glow 1.8s infinite alternate;
-    }
-
-    @keyframes glow {
-        from { text-shadow: 0 0 5px #00ff99; }
-        to { text-shadow: 0 0 15px #00ffaa; }
-    }
-
-    .rule {
-        display: flex;
-        align-items: center;
-        gap: 16px;
-        padding: 16px 0;
-        border-bottom: 1px solid rgba(255,255,255,0.2);
-        font-size: 18px;
-    }
-
-    .material-symbols-rounded {
-        font-size: 34px;
-        color: #00ff99;
-        filter: drop-shadow(0 0 4px #00ff99);
-    }
-
-    /* CONTACT INFO */
-    .contact-box {
-        margin-top: 40px;
-        background: rgba(255,255,255,0.12);
-        padding: 25px;
-        border-radius: 18px;
-        backdrop-filter: blur(10px);
-        border: 1px solid rgba(255,255,255,0.25);
-    }
-
-    .contact-line {
-        display: flex;
-        align-items: center;
-        gap: 12px;
-        margin: 10px 0;
-        font-size: 18px;
+        font-family: "Segoe UI", sans-serif;
+        background: #f3f5f7;
+        transition: 0.3s;
     }
 
     /* DARK MODE */
-    .dark {
-        background: #050505 url('https://images.unsplash.com/photo-1501004318641-b39e6451bec6?auto=format&fit=crop&w=1200&q=60') center/cover fixed !important;
+    body.dark {
+        background: #111;
+        color: #e8e8e8;
     }
 
-    .dark nav {
-        background: rgba(0,0,0,0.65);
+    /* HEADER */
+    header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 18px 40px;
+        background: rgba(0,0,0,0.75);
+        color: white;
+        position: sticky;
+        top: 0;
+        z-index: 10;
+    }
+    header.dark {
+        background: rgba(255,255,255,0.08);
     }
 
-    .dark .container {
-        background: rgba(0,0,0,0.45);
-        color: #eee;
-        border-color: rgba(255,255,255,0.2);
+    .brand {
+        font-size: 26px;
+        font-weight: bold;
+        display: flex;
+        align-items: center;
+        gap: 10px;
     }
 
-    .dark .toggle-btn {
-        background: #009966;
-        color: #fff;
+    /* NAVIGATION */
+    nav a {
+        color: white;
+        text-decoration: none;
+        margin-left: 30px;
+        font-size: 18px;
+        opacity: 0.9;
+    }
+    nav a:hover {
+        opacity: 1;
+    }
+
+    /* DARK MODE BUTTON */
+    .dark-btn {
+        padding: 8px 18px;
+        background: #00e676;
+        border-radius: 20px;
+        cursor: pointer;
+        color: black;
+        font-weight: bold;
+        transition: 0.25s;
+    }
+    .dark-btn:hover {
+        transform: scale(1.05);
+    }
+
+    /* TITLE + BOX */
+    .rule-container {
+        max-width: 900px;
+        margin: 70px auto;
+        padding: 40px 50px;
+        background: rgba(255,255,255,0.45);
+        border-radius: 20px;
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(0,0,0,0.08);
+        transition: 0.3s;
+    }
+    body.dark .rule-container {
+        background: rgba(255,255,255,0.07);
+        border: 1px solid rgba(255,255,255,0.15);
+    }
+
+    .rule-title {
+        text-align: center;
+        font-size: 32px;
+        font-weight: bold;
+        color: #00e676;
+        margin-bottom: 40px;
+    }
+
+    .rule-item {
+        font-size: 20px;
+        padding: 15px 0;
+        border-bottom: 1px solid rgba(0,0,0,0.15);
+        display: flex;
+        align-items: center;
+        gap: 12px;
+    }
+    body.dark .rule-item {
+        border-bottom: 1px solid rgba(255,255,255,0.15);
+    }
+
+    /* CONTACT SECTION */
+    #contact {
+        max-width: 900px;
+        margin: 60px auto 120px;
+        padding: 30px 40px;
+        background: rgba(255,255,255,0.4);
+        border-radius: 20px;
+        backdrop-filter: blur(10px);
+        transition: 0.3s;
+    }
+    body.dark #contact {
+        background: rgba(255,255,255,0.07);
+    }
+
+    #contact h2 {
+        color: #00e676;
+        font-size: 30px;
+        margin-bottom: 20px;
+    }
+
+    .contact-item {
+        font-size: 20px;
+        margin: 10px 0;
+        display: flex;
+        align-items: center;
+        gap: 12px;
     }
 
 </style>
 </head>
-
 <body>
-<div class="overlay"></div>
 
-<!-- NAV BAR -->
-<nav>
-    <div class="logo">
-        <img src="https://cdn-icons-png.flaticon.com/512/2907/2907253.png">
-        Green Farm IoT
-    </div>
-    <div class="menu">
+<!-- HEADER -->
+<header id="header">
+    <div class="brand">🌿🎶 Green Farm IoT</div>
+
+    <nav>
         <a href="#rules">Nội quy</a>
         <a href="#contact">Liên hệ</a>
-    </div>
-    <button class="toggle-btn" onclick="toggleMode()">Dark Mode</button>
-</nav>
+    </nav>
 
-<!-- NỘI QUY -->
-<div id="rules" class="container">
-    <h1>Nội Quy Khi Vào Green Farm IoT</h1>
+    <div class="dark-btn" onclick="toggleDark()">Dark Mode</div>
+</header>
 
-    <div class="rule">
-        <span class="material-symbols-rounded">warning</span>
-        Không hút thuốc & không mang theo nguồn lửa (diêm, bật lửa…)
-    </div>
+<!-- RULES -->
+<section id="rules" class="rule-container">
+    <div class="rule-title">Nội Quy Khi Vào Green Farm IoT</div>
 
-    <div class="rule">
-        <span class="material-symbols-rounded">key</span>
-        Không tự ý mở hộp điều khiển, router, cảm biến IoT.
-    </div>
+    <div class="rule-item">⚠️ Không hút thuốc & không mang theo nguồn lửa (diêm, bật lửa…)</div>
+    <div class="rule-item">🔑 Không tự ý mở hộp điều khiển, router, cảm biến IoT.</div>
+    <div class="rule-item">🔥 Không chạm vào cảm biến trong vườn trừ khi có hướng dẫn.</div>
+    <div class="rule-item">📷 Không che hoặc xoay camera giám sát.</div>
+    <div class="rule-item">🚶 Đi đúng lối đi, tránh dẫm lên luống cây hoặc dây điện.</div>
+    <div class="rule-item">🧹 Không xả rác – giữ môi trường xanh sạch đẹp.</div>
 
-    <div class="rule">
-        <span class="material-symbols-rounded">humidity_percentage</span>
-        Không chạm vào cảm biến trong vườn trừ khi có hướng dẫn.
-    </div>
+</section>
 
-    <div class="rule">
-        <span class="material-symbols-rounded">videocam</span>
-        Không che hoặc xoay camera giám sát.
-    </div>
+<!-- CONTACT -->
+<section id="contact">
+    <h2>Liên hệ đội ngũ Green Farm IoT</h2>
 
-    <div class="rule">
-        <span class="material-symbols-rounded">route</span>
-        Đi đúng lối đi, tránh dẫm lên luống cây hoặc dây điện.
-    </div>
-
-    <div class="rule">
-        <span class="material-symbols-rounded">cleaning_services</span>
-        Không xả rác – giữ môi trường xanh sạch đẹp.
-    </div>
-</div>
-
-<!-- LIÊN HỆ -->
-<div id="contact" class="container contact-box">
-    <h2>Thông Tin Liên Hệ Đội Ngũ Green Farm IoT</h2>
-
-    <div class="contact-line">
-        <span class="material-symbols-rounded">mail</span>
-        Email: <strong>ltnngm@gmail.com</strong>
-    </div>
-
-    <div class="contact-line">
-        <span class="material-symbols-rounded">call</span>
-        Số điện thoại: <strong>09********</strong>
-    </div>
-
-    <div class="contact-line">
-        <span class="material-symbols-rounded">groups</span>
-        Hỗ trợ kỹ thuật & vận hành hệ thống Green Farm IoT.
-    </div>
-</div>
+    <div class="contact-item">📧 Email: <b>ltnngm@gmail.com</b></div>
+    <div class="contact-item">📞 Số điện thoại: <b>09********</b></div>
+    <div class="contact-item">🏡 Khu vực: Green Farm IoT – Khu thực nghiệm mô hình nông nghiệp thông minh</div>
+</section>
 
 <script>
-function toggleMode() {
+function toggleDark() {
     document.body.classList.toggle("dark");
+    document.getElementById("header").classList.toggle("dark");
 }
 </script>
 
